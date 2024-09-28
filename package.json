@@ -1,0 +1,16 @@
+{
+  "name": "ecom-express",
+  "version": "1.0.0",
+  "description": "Backend for ecommerce store",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "SDARR",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "nodemon": "^3.1.7"
+  }
+}
