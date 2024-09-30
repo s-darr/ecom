@@ -49,3 +49,8 @@ export const addProduct = async (req, res) => {
     res.status(500).json({ error: "Server error while adding product" });
   }
 };
+
+export const buyProduct = async (req, res) => {
+  try {
+  } catch (error) {}
+};
