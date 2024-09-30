@@ -1,5 +1,9 @@
 import express from "express";
-import { addToCart, getCart } from "../controllers/cartController.js";
+import {
+  addToCart,
+  getCart,
+  removeFromCart,
+} from "../controllers/cartController.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
@@ -10,6 +14,6 @@ router.get("/", verifyToken, getCart);
 
 //router.put("/update", verifyToken, updateCartItem);
 
-//router.delete("/remove", verifyToken, removeFromCart);
+router.delete("/remove", verifyToken, removeFromCart);
 
 export default router;

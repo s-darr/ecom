@@ -26,3 +26,15 @@ export const getUserCart = async (buyerId) => {
   const result = await pool.query(query, values);
   return result.rows;
 };
+
+export const removeItemCart = async (productId, userId) => {
+  const query = "DELETE FROM Cart WHERE product_id = $1 AND user_id = $2";
+  const values = [productId, userId];
+
+  const result = await pool.query(query, values);
+
+  if (result.rowCount === 0) {
+    return { success: false, message: "Item not found in cart" };
+  }
+  return { success: true, message: "Item successfully removed from cart" };
+};
