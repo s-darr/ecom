@@ -12,7 +12,7 @@ router.post("/add", verifyToken, addToCart);
 
 router.get("/", verifyToken, getCart);
 
-//router.put("/update", verifyToken, updateCartItem);
+router.put("/update", verifyToken, updateCartItem);
 
 router.delete("/remove", verifyToken, removeFromCart);
 

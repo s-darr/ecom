@@ -5,7 +5,7 @@ export const getAllProducts = async () => {
     const result = await pool.query("SELECT * FROM products");
     return result.rows[0];
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 

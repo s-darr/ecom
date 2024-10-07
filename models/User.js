@@ -12,7 +12,7 @@ export const getUserByUsername = async (username) => {
     }
     return result.rows[0];
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
@@ -39,6 +39,6 @@ export const createUser = async (username, email, password, role) => {
     }
     return newUser;
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };

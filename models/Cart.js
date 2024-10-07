@@ -38,3 +38,20 @@ export const removeItemCart = async (productId, userId) => {
   }
   return { success: true, message: "Item successfully removed from cart" };
 };
+
+export const updateCartItemQuantity = async (buyerId, productId, quantity) => {
+  if (quantity <= 0) {
+    return await removeItemCart(productId, buyerId);
+  }
+
+  const query = `
+    UPDATE Cart
+    SET quantity = $3
+    WHERE buyer_id = $1 AND product_id = $2
+    RETURNING *;
+  `;
+  const values = [buyerId, productId, quantity];
+
+  const result = await pool.query(query, values);
+  return result.rows[0];
+};
