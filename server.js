@@ -3,8 +3,6 @@ import auth from "./routes/auth.js";
 import products from "./routes/products.js";
 import cart from "./routes/cart.js";
 import orders from "./routes/order.js";
-import swaggerJsdoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
 
 const app = express();
 

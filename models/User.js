@@ -1,5 +1,5 @@
 import pool from "../config/db.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { addSeller } from "./Seller.js";
 export const getUserByUsername = async (username) => {
   try {

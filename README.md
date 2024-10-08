@@ -104,3 +104,11 @@ You can set up the backend with Docker for easy deployment.
   ```bash
   docker-compose up --build
   ```
+
+## To-do
+
+Features for improvement.
+
+- Add functionality for reviews table.
+- Data caching using Redis to cache frequently accessed data.
+- Optimise SQL queries, and implement rate limiting.
