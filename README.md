@@ -107,8 +107,9 @@ You can set up the backend with Docker for easy deployment.
 
 ## To-do
 
-Features for improvement.
+Features for future improvement.
 
 - Add functionality for reviews table.
 - Data caching using Redis to cache frequently accessed data.
 - Optimise SQL queries, and implement rate limiting.
+- Write unit tests using JEST
