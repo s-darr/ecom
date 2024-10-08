@@ -15,7 +15,7 @@ export const createOrder = async (buyerId, items) => {
     for (const item of items) {
       const { product_id, quantity } = item;
 
-      const orderDetailsQuery = `
+      const orderDetailsQuery = ` 
         INSERT INTO OrderDetails (order_id, product_id, quantity, price)
         SELECT $1, $2, $3, price FROM Products WHERE id = $2
       `;
@@ -29,9 +29,10 @@ export const createOrder = async (buyerId, items) => {
       await pool.query(updateProductQuery, [quantity, product_id]);
     }
 
+    //Delete where buyer_id matches and product_id is present in productIds
     const clearCartQuery = `
       DELETE FROM Cart
-      WHERE buyer_id = $1 AND product_id = ANY($2::int[])
+      WHERE buyer_id = $1 AND product_id = ANY($2::int[]) 
     `;
     const productIds = items.map((item) => item.product_id);
     await pool.query(clearCartQuery, [buyerId, productIds]);

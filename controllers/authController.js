@@ -21,7 +21,7 @@ export const loginUser = async (req, res) => {
 
     const storedPasswordHash = user.password;
     const isPasswordCorrect = await bcrypt.compare(
-      // Compare user password with stored password
+      // Compare user password with stored password hash
       password,
       storedPasswordHash
     );
@@ -36,7 +36,7 @@ export const loginUser = async (req, res) => {
         },
         process.env.JWT_SECRET,
         {
-          expiresIn: "1h",
+          expiresIn: "1h", // Token expiry time
         }
       );
       return res

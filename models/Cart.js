@@ -41,6 +41,7 @@ export const removeItemCart = async (productId, userId) => {
 
 export const updateCartItemQuantity = async (buyerId, productId, quantity) => {
   if (quantity <= 0) {
+    // Remove from the cart if the quantity will be 0
     return await removeItemCart(productId, buyerId);
   }
 

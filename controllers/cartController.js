@@ -16,6 +16,7 @@ export const addToCart = async (req, res) => {
   const userId = req.user.id;
 
   if (!productId || !quantity) {
+    // Quantity and productId are both required
     return res
       .status(400)
       .json({ message: "Please provide productId and quantity" });
