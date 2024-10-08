@@ -1,3 +1,9 @@
+// controllers/productsController.js
+/**
+ * This file contains controller functions for handling products.
+ * It allows the user get all items being sold, and also sell a product.
+ */
+
 import {
   findSellerByUserId,
   addProductForSeller,
@@ -48,9 +54,4 @@ export const addProduct = async (req, res) => {
     console.error("Error adding product:", error.message);
     res.status(500).json({ error: "Server error while adding product" });
   }
-};
-
-export const buyProduct = async (req, res) => {
-  try {
-  } catch (error) {}
 };

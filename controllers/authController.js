@@ -1,3 +1,9 @@
+// controllers/authController.js
+/**
+ * This file contains authentication functions for logging in and registering.
+ * It creates a JWT token that expires in 1hr and it uses hashed passwords.
+ */
+
 import { getUserByUsername, createUser } from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -7,7 +13,7 @@ export const loginUser = async (req, res) => {
     return res.status(400).json({ message: "Supply username and password" });
   }
   try {
-    const user = await getUserByUsername(username);
+    const user = await getUserByUsername(username); // Get user from database
 
     if (user === undefined) {
       return res.status(404).json({ message: "Invalid credentials" });
@@ -15,12 +21,14 @@ export const loginUser = async (req, res) => {
 
     const storedPasswordHash = user.password;
     const isPasswordCorrect = await bcrypt.compare(
+      // Compare user password with stored password
       password,
       storedPasswordHash
     );
 
     if (isPasswordCorrect) {
       const token = jwt.sign(
+        // Create token and send back to the client
         {
           id: user.id,
           username: user.username,
@@ -54,7 +62,7 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     } else {
       console.log(username, password, email, role);
-      const newUser = await createUser(username, email, password, role);
+      const newUser = await createUser(username, email, password, role); // Create user in database if user does not exist yet
       return res.status(201).json(newUser);
     }
   } catch (error) {

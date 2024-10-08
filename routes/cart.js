@@ -3,6 +3,7 @@ import {
   addToCart,
   getCart,
   removeFromCart,
+  updateCartItem,
 } from "../controllers/cartController.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 

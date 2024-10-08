@@ -1,3 +1,9 @@
+// controllers/cartController.js
+/**
+ * This file contains controller functions for handling cart related operations.
+ * It allows adding, updating, removing, and retrieving items from the user's cart.
+ */
+
 import {
   addCartItem,
   getUserCart,
